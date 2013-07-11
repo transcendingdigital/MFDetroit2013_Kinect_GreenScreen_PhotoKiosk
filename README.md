@@ -1,11 +1,7 @@
 Maker Faire Detroit 2013 Kinect Green Screen Photo Kiosk
 ==============================
 
-This kiosk application was created for Maker Faire Detroit 2013 to accompany two tablet based email kiosks. This project is in no way affiliated with The Henry Ford or Maker Faire.  
-It was an independent project. The experience will be deployed in the exhibit space on a Dell Optiplex 790, Phillips 42 inch monitor, and the Kinect For Windows sensor.
-
-A device independent html5 kiosk for emailing user photos taken in an exhibit space. Integrates with Drupal 7 or a local web server. Most development on this project
-has been tested under ios5, ios6, Firefox, IE, and Chrome. This is a reactive application, so it resizes itself to fit the screen area available on the device.
+This kiosk application was created for Maker Faire Detroit 2013 to accompany two tablet based email kiosks. This project is in no way affiliated with The Henry Ford or Maker Faire.  It was an independent project. The experience will be deployed in the exhibit space on a Dell Optiplex 790, Phillips 42 inch monitor, and the Kinect For Windows sensor.
 
 Kinect Hardware
 --------------------------------------------------
@@ -35,9 +31,7 @@ This file is in an xml format and you can change the settings by modifying the e
 
 ``` defaultCaptionText ``` - The default text seen at the top of the interface between audible captions.
 
-``` KinectPlayerBoundingBoxW ``` - This is a calibration setting to help reduce the amount a person has to move their hands left and right to control the cursors on the screen.  
-By default a person would have to run all the way left or right across the screen to move cursors around.  This application creates a virtual bounding box around the player using their head as a 
-center point. If things seem too sensitive, increase this number, if things seem not sensitive enough, decrease this number.
+``` KinectPlayerBoundingBoxW ``` - This is a calibration setting to help reduce the amount a person has to move their hands left and right to control the cursors on the screen.  By default a person would have to run all the way left or right across the screen to move cursors around.  This application creates a virtual bounding box around the player using their head as a center point. If things seem too sensitive, increase this number, if things seem not sensitive enough, decrease this number.
 
 ``` drupalURL ``` - If you are going to use a Drupal 7 content management system with this application, this should be the default URL to the Drupal instance.
 
@@ -49,8 +43,7 @@ center point. If things seem too sensitive, increase this number, if things seem
 
 ``` drupalConfigurationNode ``` - If you are using Drupal 7, this is the node ID of the node that holds configuration options.
 
-``` kinectSeatedModeEnabled ``` - You can turn the Kinect SDK seated mode on or off by setting this to True or False. In deployments it has been good practice to just keep seated mode on all the time. 
-It seems to pick up standing users well but also will pick up users in a wheel chair or sitting down.
+``` kinectSeatedModeEnabled ``` - You can turn the Kinect SDK seated mode on or off by setting this to True or False. In deployments it has been good practice to just keep seated mode on all the time. It seems to pick up standing users well but also will pick up users in a wheel chair or sitting down.
 
 ``` kinectDepthLeftOffset ``` - This actually moves the whole depth square area to the left or right.  If you look at the raw data, even when scaled or set identical the Kinect depth data is inside a square inside of the color frame with borders all around it. This exhibit offsets the depth data and scales it in coordination with the color frame to get a full image.
 
@@ -103,7 +96,7 @@ How to Turn on Enhanced Green Screen Support With Emgu CV
 Emgu CV is a .NET wrapper for the powerful computer vision project Open CV. 
 By default the features that incorporate Emgu CV are turned off to reduce the download size and compatibility of the project.
 
-Turning on Emgu CV will:
+#####Turning on Emgu CV will:
 1. Smooth out the green screen mask greatly.
 2. Reduce the number of holes created in tough areas like hair
 3. Allow you to shift the mask left or right to help align the mask more accurately
@@ -119,7 +112,7 @@ Depending on if you have a 32 or 64 bit system, you will need to incorporate the
 4. Copy the following dll (and test exe) files from the /bin/x86 or /bin/x64 folder into the same directory as KinectGreenScreen.exe
 5. After copying the files, run cvextern_test.exe by double clicking it to ensure that the emgu cv files will run on your system.
 
-Emgu CV File List:
+#####Emgu CV File List:
 1. cublas64_50_35.dll
 2. cudart64_50_35.dll
 3. cufft64_50_35.dll
@@ -156,25 +149,24 @@ You can easily swap out the green screen foregrounds, backgrounds, and toggle gr
 Here are a few examples:
 #####Example 1 – Three images, number 2 has only a background, number 3 is greyscale.
 
-1_Background.png
-1_Foreground.png
-2_Background.png
-3_Background_Greyscale.png
-3_Foreground_Greyscale.png
+* 1_Background.png
+* 1_Foreground.png
+* 2_Background.png
+* 3_Background_Greyscale.png
+* 3_Foreground_Greyscale.png
 
 #####Example 2 – One image with  a background and foreground
-
-1_Background.png
-1_Foreground.png
+* 1_Background.png
+* 1_Foreground.png
 
 #####Example 3 – Four images. One with only a background and greyscale, Two in color with a background only, three color with a foreground and background, four with a background and foreground in greyscale.
 
-1_Background_Greyscale.png
-2_Background.png
-3_Background.png
-3_Foreground.png
-4_Background_Greyscale.png
-4_Foreground_Greyscale.png
+* 1_Background_Greyscale.png
+* 2_Background.png
+* 3_Background.png
+* 3_Foreground.png
+* 4_Background_Greyscale.png
+* 4_Foreground_Greyscale.png
 
 How to Use the Drupal 7 CMS
 --------------------------------------------------
