@@ -1,0 +1,114 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KinectGreenScreen.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="defaultCaptionText" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Take your picture and E-mail it home!</Value>
+    </Setting>
+    <Setting Name="useCMS" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="kinectPlayerBoundingBoxW" Type="System.Single" Scope="Application">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="drupalURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">YOUR_DRUPAL_URL</Value>
+    </Setting>
+    <Setting Name="drupalServiceEndpoint" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">YOUR_DRUPAL_SERVICE_ENDPOINT_NAME</Value>
+    </Setting>
+    <Setting Name="drupalServiceUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">YOUR_DRUPAL_USER_NAME</Value>
+    </Setting>
+    <Setting Name="drupalServicePassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">YOUR_DRUPAL_USER_NAME_PASSWORD</Value>
+    </Setting>
+    <Setting Name="drupalConfigurationNode" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
+    <Setting Name="kinectSeatedModeEnabled" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="kinectDepthLeftOffset" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">-42</Value>
+    </Setting>
+    <Setting Name="kinectPostBlurInt" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="kinectGreenScreenDepthThresholdMeters" Type="System.Single" Scope="Application">
+      <Value Profile="(Default)">1.7</Value>
+    </Setting>
+    <Setting Name="kinectSensingDepthCutoffMeters" Type="System.Single" Scope="Application">
+      <Value Profile="(Default)">1.7</Value>
+    </Setting>
+    <Setting Name="kinectDepthTopOffset" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">-34</Value>
+    </Setting>
+    <Setting Name="kinectDepthImageScale" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">1.15</Value>
+    </Setting>
+    <Setting Name="photoCountdownSeconds" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="monochromeEffectContrastMultiplier" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">0.8</Value>
+    </Setting>
+    <Setting Name="kinectAutoExposure" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="kinectAutoExposureBrightness" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">0.2156</Value>
+    </Setting>
+    <Setting Name="kinectGain" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="kinectManualExposureFrameInterval" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="kinectManualExposureTime" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="kinectAutoWhiteBalance" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="kinectManualWhiteBalanceValue" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2700</Value>
+    </Setting>
+    <Setting Name="kinectManualHue" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="kinectManualContrast" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="kinectManualGamma" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">2.2</Value>
+    </Setting>
+    <Setting Name="kinectManualSaturation" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="kinectManualSharpness" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">0.5</Value>
+    </Setting>
+    <Setting Name="kinectGreenScreenMaskXPixelShift" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="useEmguCV" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="drupalSubmissionContentType" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">green_screen_image</Value>
+    </Setting>
+    <Setting Name="drupalSubmittedImageViewName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">submitted_green_screen_images</Value>
+    </Setting>
+    <Setting Name="exhibitTimeoutMS" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2000</Value>
+    </Setting>
+    <Setting Name="drupalPublishSubmittedMedia" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="exhibitCursorActivationMS" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

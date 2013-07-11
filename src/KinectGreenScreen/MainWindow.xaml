@@ -1,0 +1,14 @@
+﻿<Window x:Class="KinectGreenScreen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:KinectGreenScreen.com.transcendingdigital.ui"
+        Title="KinectGreenScreen" x:Name="mainWindow" WindowState="Maximized" WindowStyle="None" Width="1200" Height="1080" Loaded="mainWindow_Loaded" Closing="mainWindow_Closing" KeyDown="mainWindow_KeyDown">
+    <Canvas x:Name="masterParent" Background="White">
+        <Image x:Name="bgGear" Source="Resources/bgGear.png" Canvas.Left="30" Canvas.Top="458" Stretch="None" Opacity="0.1"/>
+        <DockPanel x:Name="dockDude" Height="940" Width="1180">
+            <local:CaptionBar x:Name="captionMaster" DockPanel.Dock="Top" BorderBrush="#E62923" BorderThickness="0,0,0,5" Margin="0,0,0,0" />
+            <Canvas x:Name="transitionHolder" DockPanel.Dock="Top">
+            </Canvas>
+        </DockPanel>
+    </Canvas>
+</Window>

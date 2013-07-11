@@ -1,0 +1,30 @@
+﻿<captionGuide>
+  <captionSegment key="ButtonStateTesting.ActivityModel.STATE_CALLOUT1" file="heyThereTakeYourPicture_var1.mp3">
+    <entry timeInSec="0"><![CDATA[Hey there, come take your picture and e-mail it home!]]></entry>
+  </captionSegment>
+  <captionSegment key="ButtonStateTesting.ActivityModel.STATE_CALLOUT2" file="heyThereTakeYourPicture_var2.mp3">
+    <entry timeInSec="0"><![CDATA[Hey there, come take your picture and e-mail it home!]]></entry>
+  </captionSegment>
+   <captionSegment key="ButtonStateTesting.ActivityModel.STATE_CALLOUT3" file="heyThereTakeYourPicture_var3.mp3">
+    <entry timeInSec="0"><![CDATA[Hey there, come take your picture and e-mail it home!]]></entry>
+  </captionSegment>
+  <captionSegment key="ButtonStateTesting.ActivityModel.STATE_PHOTO_DESTROYED" file="yourPhotoDestroyed.mp3">
+    <entry timeInSec="0"><![CDATA[Your photo has been destroyed.]]></entry>
+  </captionSegment>
+  <captionSegment key="ButtonStateTesting.ActivityModel.STATE_LOOKINGGOOD" file="LookingGoodWouldYouLikeToEmail.mp3">
+    <entry timeInSec="0"><![CDATA[Looking good! Would you like to e-mail this photo?]]></entry>
+  </captionSegment>
+  <captionSegment key="ButtonStateTesting.ActivityModel.STATE_PHOTO_SUBMITTED" file="thanksSendPhotoHome.mp3">
+    <entry timeInSec="0"><![CDATA[Thanks! Head to an e-mail station to send your photo home!]]></entry>
+  </captionSegment>
+  <captionSegment key="ButtonStateTesting.ActivityModel.STATE_YES_NOPHOTO" file="HoldCursorYesNo.mp3">
+    <entry timeInSec="0"><![CDATA[Hold the cursor over yes to confirm, no to deny.]]></entry>
+  </captionSegment>
+  <captionSegment key="ButtonStateTesting.ActivityModel.STATE_POSITION_PHOTO" file="positionYourselfInThePhotoArea.mp3">
+    <entry timeInSec="0"><![CDATA[Position yourself in the photo area]]></entry>
+    <entry timeInSec="3"><![CDATA[and hold your cursor over the "take photo" button to start the countdown.]]></entry>
+  </captionSegment>
+  <captionSegment key="ButtonStateTesting.ActivityModel.STATE_PHOTO_QUESTION" file="wouldYouLikeToTakeaPhoto.mp3">
+    <entry timeInSec="0"><![CDATA[Would you like to take a photo?]]></entry>
+  </captionSegment>
+</captionGuide>
