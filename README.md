@@ -89,7 +89,15 @@ This file is in an xml format and you can change the settings by modifying the e
 
 ``` useEmguCV ``` - Set to True or False. Requires the Emgu CV dll's if you set it to true.  If you do not have the dll's or they are a different version the application will not work with this enabled.
 
-``` kinectManualContrast ``` -
+``` drupalSubmissionContentType ``` - If using Drupal, this is the name of a custom content type that has specific fields that the interactive submits to.
+
+``` drupalSubmittedImageViewName ``` - If using Drupal, this is the name of a view that lists the most recent submitted images.
+
+``` exhibitTimeoutMS ``` - The number of milliseconds between checking for players detected by the Kinect. 1000 milliseconds is one second. If no players are found then the application will revert to the main screen.
+
+``` drupalPublishSubmittedMedia ``` - When set to true, content published to Drupal will automatically be published.  In scenerios where you want to review all content before it is publicly published when using Drupal, you can set this to False and publish it once reviewed.
+
+``` exhibitCursorActivationMS ``` - The number of milliseconds it takes a hand cursor to activate a UI item. This is also how fast the circle will animate around the hand cursor.
 
 How to Turn on Enhanced Green Screen Support With Emgu CV
 --------------------------------------------------
