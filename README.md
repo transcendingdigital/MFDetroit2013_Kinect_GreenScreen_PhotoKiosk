@@ -8,6 +8,17 @@ The green screen photo/video kiosk is one of the most popular attractions we imp
 
 The incorporation of the Kinect has been important because event the highest quality commercial touchscreens have a deployment lifetime averaging three years. With the more recent “seated mode” available in the official Kinect SDK, the sensor has opened the door to greater accessibility for users with special needs which is always an important consideration with interactive experiences.
 
+UI Screen Shots
+--------------------------------------------------
+##### With Emgu CV Features Turned On
+![Confirm or deny prompt on the photo provided by Dang Argyle With Emgu CV turned on](https://raw.github.com/transcendingdigital/MFDetroit2013_Kinect_GreenScreen_PhotoKiosk/master/githubImages/MFDetKiosk2.jpg "Confirm or deny prompt on the photo provided by Dang Argyle With Emgu CV turned on")
+![Fun with the Ford Rouge plant licensed photo in greyscale with Emgu CV turned on](https://raw.github.com/transcendingdigital/MFDetroit2013_Kinect_GreenScreen_PhotoKiosk/master/githubImages/MFDetKiosk3.jpg "Fun with the Ford Rouge plant licensed photo in greyscale with Emgu CV turned on")
+![Attract loop featuring randomly submitted test images](https://raw.github.com/transcendingdigital/MFDetroit2013_Kinect_GreenScreen_PhotoKiosk/master/githubImages/MFDetKiosk1.jpg "Attract loop featuring randomly submitted test images")
+
+##### With Emgu CV Features Turned Off (Still the Postblur Through)
+![A licensed image seen with the default Kinect Depth Mask including postblur](https://raw.github.com/transcendingdigital/MFDetroit2013_Kinect_GreenScreen_PhotoKiosk/master/githubImages/MFDetKiosk4_NoEMGU.jpg "A licensed image seen with the default Kinect Depth Mask including postblur")
+![A licensed image of Detroit with the default Kinect Depth Mask including postblur](https://raw.github.com/transcendingdigital/MFDetroit2013_Kinect_GreenScreen_PhotoKiosk/master/githubImages/MFDetKiosk5_NoEMGU.jpg "A licensed image of Detroit with the default Kinect Depth Mask including postblur")
+	
 Kinect Hardware
 --------------------------------------------------
 
