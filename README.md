@@ -3,6 +3,11 @@ Maker Faire Detroit 2013 Kinect Green Screen Photo Kiosk
 
 This kiosk application was created for Maker Faire Detroit 2013 to accompany two tablet based email kiosks. This project is in no way affiliated with The Henry Ford or Maker Faire.  It was an independent project. The experience will be deployed in the exhibit space on a Dell Optiplex 790, Phillips 42 inch monitor, and the Kinect For Windows sensor.
 
+##### Motivation
+The green screen photo/video kiosk is one of the most popular attractions we implement professionally in Museums and Visitor Centers. The Kinect has a long way to go before it can replace the industry standard color based chroma key; but with acceptance of slight key quality degradation, the Kinect serves as a wonderful portable or pop up green screen experience.
+
+The incorporation of the Kinect has been important because event the highest quality commercial touchscreens have a deployment lifetime averaging three years. With the more recent “seated mode” available in the official Kinect SDK, the sensor has opened the door to greater accessibility for users with special needs which is always an important consideration with interactive experiences.
+
 Kinect Hardware
 --------------------------------------------------
 
