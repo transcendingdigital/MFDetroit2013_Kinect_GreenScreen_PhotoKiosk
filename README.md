@@ -134,6 +134,9 @@ This project was put together using Emgu 2.4.9-alpha. (Version 2.4.2 was built t
 
 Depending on if you have a 32 or 64 bit system, you will need to incorporate the correct version of the Emgu CV dll's. You will also need to set the Visual Studio debug and build options to match 64 or 32 bit platforms.
 
+#####Easy Emgu MSI Installers:
+There are easy msi installers that have Emgu included.  They cannot be hosted on Github, because they are larger than 100mb.  You can [download them from Transcending Digital](http://www.transcendingdigital.com/node/66).
+
 #####How to turn it on:
 1. In the file KinectGreenScreen.exe.config set the useEmguCV setting to True
 2. Download libemgucv-windows-universal-gpu-2.4.9.1847.zip from [http://sourceforge.net/projects/emgucv/files/emgucv/2.4.9-alpha/](http://sourceforge.net/projects/emgucv/files/emgucv/2.4.9-alpha/)
