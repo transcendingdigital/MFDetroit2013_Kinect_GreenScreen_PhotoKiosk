@@ -726,6 +726,9 @@ namespace KinectGreenScreen
                 {
                     sec_attract.confimDenyPrompt(false);
                 }
+
+                // RE-ENABLE DETECTION OF PLAYERS FOR GOING BACK TO THE ATTRACT
+                _disableBackToAttract = false;
             }
             else if (e.activationTarget is buttonTPPrompt)
             {
