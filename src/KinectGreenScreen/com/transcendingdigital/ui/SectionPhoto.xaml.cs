@@ -80,6 +80,11 @@ namespace KinectGreenScreen.com.transcendingdigital.ui
         // It lives in Main.
         private List<chromaKeyImageData> _chromaKImages;
 
+        // Opacity double animation for showing the take photo button. We need it global so we can track when its finished
+        // to allow confirm or deny again.
+        DoubleAnimation daOpacity = new DoubleAnimation(0, 1, new Duration(TimeSpan.FromSeconds(0.5)));
+        private bool _confirmDenyTransitioning = false;
+
         public SectionPhoto()
         {
             InitializeComponent();
@@ -163,48 +168,65 @@ namespace KinectGreenScreen.com.transcendingdigital.ui
 
         public void confirmDenyPhoto(bool _yesNo)
         {
+            //7/28/2013 - There is a System.ArgumentException that can occurr here on a dependency property not 100% on what is causing it yet.
+            // submission is not affected but it is related to a double animation. I expect from daHeight or daFHeight
 
-            // Hide the yes and no buttons
-            DoubleAnimation daHeight = new DoubleAnimation(Canvas.GetTop(contentBorder) + contentBorder.ActualHeight + 50, (GlobalConfiguration.currentScreenH + btnStack.ActualHeight + 30), new Duration(TimeSpan.FromSeconds(0.3)));
-            // Slide the background selection back in
-            DoubleAnimation daFHeight = new DoubleAnimation((GlobalConfiguration.currentScreenW + 50),(GlobalConfiguration.currentScreenW / 2 - stackBGs.ActualWidth / 2), new Duration(TimeSpan.FromSeconds(0.3)));
-            SineEase ease = new SineEase();
-            ease.EasingMode = EasingMode.EaseIn;
-            daHeight.EasingFunction = ease;
-            daFHeight.EasingFunction = ease;
-            daFHeight.BeginTime = TimeSpan.FromSeconds(0.2);
-            btnStack.BeginAnimation(Canvas.TopProperty, daHeight);
-            stackBGs.BeginAnimation(Canvas.LeftProperty, daFHeight);
-            //btnYes.BeginAnimation(Button.MarginProperty
-
-            // Show take photo
-            DoubleAnimation daOpacity = new DoubleAnimation(0, 1, new Duration(TimeSpan.FromSeconds(0.5)));
-            txtTakePhoto.Text = "TAKE PHOTO";
-            txtTakePhoto.BeginAnimation(TextBlock.OpacityProperty, daOpacity);
-            txtStartCountdown.BeginAnimation(TextBlock.OpacityProperty, daOpacity);
-            takePhoto.BeginAnimation(Image.OpacityProperty, daOpacity);
-            takePhoto.IsHitTestVisible = true;
-
-            if (_yesNo == true)
+            // It is also possible that this could be called immediately twice in a row with yes or no..so be careful...So a left and right hand
+            // simultaniously activate or two players activate at the same time..so two of the same.
+            if (_confirmDenyTransitioning == false)
             {
-                // Captions
-                requestNewCaption(ApplicationStates.STATE_PHOTO_SUBMITTED, false);
-                saveImageFrame();
-                // Ensure the main knows it needs to update the photo list in attract next time
-                if (requestNewPhotoList != null)
+                try
                 {
-                    PhotoListStateEventArgs newArgs = new PhotoListStateEventArgs(true, null);
-                    requestNewPhotoList(this, newArgs);
+                    // Hide the yes and no buttons
+                    DoubleAnimation daHeight = new DoubleAnimation(Canvas.GetTop(contentBorder) + contentBorder.ActualHeight + 50, (GlobalConfiguration.currentScreenH + btnStack.ActualHeight + 30), new Duration(TimeSpan.FromSeconds(0.3)));
+                    // Slide the background selection back in
+                    DoubleAnimation daFHeight = new DoubleAnimation((GlobalConfiguration.currentScreenW + 50), (GlobalConfiguration.currentScreenW / 2 - stackBGs.ActualWidth / 2), new Duration(TimeSpan.FromSeconds(0.3)));
+                    SineEase ease = new SineEase();
+                    ease.EasingMode = EasingMode.EaseIn;
+                    daHeight.EasingFunction = ease;
+                    daFHeight.EasingFunction = ease;
+                    daFHeight.BeginTime = TimeSpan.FromSeconds(0.2);
+                    btnStack.BeginAnimation(Canvas.TopProperty, daHeight);
+                    stackBGs.BeginAnimation(Canvas.LeftProperty, daFHeight);
+                    //btnYes.BeginAnimation(Button.MarginProperty
+
+                    // Show take photo
+                    daOpacity.Completed += showTakePhotoCompleted;
+                    _confirmDenyTransitioning = true;
+                    txtTakePhoto.Text = "TAKE PHOTO";
+                    txtTakePhoto.BeginAnimation(TextBlock.OpacityProperty, daOpacity);
+                    txtStartCountdown.BeginAnimation(TextBlock.OpacityProperty, daOpacity);
+                    takePhoto.BeginAnimation(Image.OpacityProperty, daOpacity);
+                }
+                catch (ArgumentException aEx)
+                {
+                    System.Diagnostics.Debug.WriteLine("SectionPhoto - configmDenyPhoto argument exception: " + aEx.Message);
+                }
+
+                if (_yesNo == true)
+                {
+                    // Captions
+                    requestNewCaption(ApplicationStates.STATE_PHOTO_SUBMITTED, false);
+                    saveImageFrame();
+                    // Ensure the main knows it needs to update the photo list in attract next time
+                    if (requestNewPhotoList != null)
+                    {
+                        PhotoListStateEventArgs newArgs = new PhotoListStateEventArgs(true, null);
+                        requestNewPhotoList(this, newArgs);
+                    }
+                }
+                else
+                {
+                    // Captions
+                    requestNewCaption(ApplicationStates.STATE_PHOTO_DESTROYED, false);
+                }
+
+                // Save photo or not, we can unfreese the video here. Saving is done in a background worker
+                if (gsView != null)
+                {
+                    gsView.freezePhotoOrNot(false);
                 }
             }
-            else
-            {
-                // Captions
-                requestNewCaption(ApplicationStates.STATE_PHOTO_DESTROYED, false);
-            }
-
-            // Save photo or not, we can unfreese the video here. Saving is done in a background worker
-            gsView.freezePhotoOrNot(false);
         }
 
         public void swapBackground(string _targetBG, string _targetFG)
@@ -231,6 +253,12 @@ namespace KinectGreenScreen.com.transcendingdigital.ui
 
         public void destroyInternals()
         {
+            // Stop any animation just in case
+            if (daOpacity != null)
+            {
+                daOpacity.Completed -= showTakePhotoCompleted;
+                daOpacity = null;
+            }
             // Remove any dynamic thumbnails
             if (_chromaKImages.Count > 0)
             {
@@ -465,5 +493,14 @@ namespace KinectGreenScreen.com.transcendingdigital.ui
 
         }
 
+        private void showTakePhotoCompleted(object Sender, EventArgs e)
+        {
+            if (daOpacity != null)
+            {
+                daOpacity.Completed -= showTakePhotoCompleted;
+                takePhoto.IsHitTestVisible = true;
+                _confirmDenyTransitioning = false;
+            }
+        }
     }
 }

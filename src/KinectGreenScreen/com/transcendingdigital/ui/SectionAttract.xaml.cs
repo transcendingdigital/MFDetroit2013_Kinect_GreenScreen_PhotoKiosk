@@ -115,9 +115,22 @@ namespace KinectGreenScreen.com.transcendingdigital.ui
 
         public void jumpToPhotoBtnActivated()
         {
+            // Disable hit capability to prevent simultanious multiple
+            // hits
+            btnJumpPhoto.IsHitTestVisible = false;
             _mainWinRef.createPhotoSectionFromAttract();
         }
 
+        /***
+         * Keep in mind this can be called simultaniously
+         * one or more times from multiple players
+         * or cursors. It will be in a row, but
+         * states could not be ideal so handle
+         * them.
+         * 
+         * The IsHitTestVisible down here should stop
+         * double hits, right?
+         */
         public void confimDenyPrompt(bool _yn)
         {
             // Either way, we need to hide yes and no

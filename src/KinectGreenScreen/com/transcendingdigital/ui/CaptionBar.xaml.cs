@@ -126,30 +126,53 @@ namespace KinectGreenScreen.com.transcendingdigital.ui
 
             if (commandQueue.Count > 0)
             {
-                _currentKey = commandQueue[0];
-                commandQueue.RemoveAt(0);
-                _captionPlayer = new MediaPlayer();
-                _captionPlayer.MediaEnded += handleSoundDone;
-                _captionPlayer.MediaOpened += handleSoundLoaded;
-                _captionPlayer.MediaFailed += handleSoundError;
-                _captionPlayer.Open(new Uri("pack://siteOfOrigin:,,,/localFiles/audio/" + loadedCaptions[_currentKey].audioFile));
-                _captionPlayer.Play();
-
-                // Get our little timer going to advance the captions
-                _captionTimer = new Timer(500);
-                _captionTimer.Elapsed += handleCaptionTime;
-                _captionTimer.Start();
-                //loadedCaptions[_WhatOne.value].audioFile
-
-                // Set the intial caption
+                bool keyPresent = false;
                 try
                 {
-                    captions.Text = loadedCaptions[_currentKey].captionContent[0];
-                    _currentCaptionIndex = 0;
+                    _currentKey = commandQueue[0];
+                    commandQueue.RemoveAt(0);
                 }
-                catch (Exception e)
+                catch (Exception argEx)
                 {
-                    Console.WriteLine("No caption for spot 0 " + e.ToString());
+                    System.Diagnostics.Debug.WriteLine("Out of range exception on captions: " + argEx.Message);
+                }
+
+                try
+                {
+                    if (loadedCaptions.ContainsKey(_currentKey) )
+                    {
+                        keyPresent = true;
+                    }
+                } catch(ArgumentNullException exNull) {
+                    System.Diagnostics.Debug.WriteLine("Captions do not contain key: " + _currentKey + " exception: " + exNull);
+                }
+
+                if (keyPresent == true)
+                {
+                    _captionPlayer = new MediaPlayer();
+                    _captionPlayer.MediaEnded += handleSoundDone;
+                    _captionPlayer.MediaOpened += handleSoundLoaded;
+                    _captionPlayer.MediaFailed += handleSoundError;
+                    _captionPlayer.Open(new Uri("pack://siteOfOrigin:,,,/localFiles/audio/" + loadedCaptions[_currentKey].audioFile));
+                    _captionPlayer.Play();
+
+                   
+                        // Get our little timer going to advance the captions
+                    _captionTimer = new Timer(500);
+                    _captionTimer.Elapsed += handleCaptionTime;
+                    _captionTimer.Start();
+                    //loadedCaptions[_WhatOne.value].audioFile
+
+                    // Set the intial caption
+                    try
+                    {
+                        captions.Text = loadedCaptions[_currentKey].captionContent[0];
+                        _currentCaptionIndex = 0;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("No caption for spot 0 " + e.ToString());
+                    }
                 }
             }
             else
